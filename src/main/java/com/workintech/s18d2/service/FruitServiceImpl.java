@@ -4,17 +4,23 @@ import com.workintech.s18d2.repository.FruitRepository;
 import com.workintech.s18d2.entity.Fruit;
 import com.workintech.s18d2.exceptions.PlantException;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 
-@AllArgsConstructor
+
 @Service
 public class FruitServiceImpl implements FruitService {
 
     private final FruitRepository fruitRepository;
+
+    @Autowired
+    public FruitServiceImpl(FruitRepository fruitRepository) {
+        this.fruitRepository = fruitRepository;
+    }
 
     @Override
     public List<Fruit> getByPriceDesc() {

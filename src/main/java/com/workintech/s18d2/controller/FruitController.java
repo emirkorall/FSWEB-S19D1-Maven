@@ -7,16 +7,22 @@ import com.workintech.s18d2.service.FruitService;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@AllArgsConstructor
+
 @RestController
 @RequestMapping("/fruit")
 public class FruitController {
 
-    private FruitService fruitService;
+    private final FruitService fruitService;
+
+    @Autowired
+    public FruitController(FruitService fruitService) {
+        this.fruitService = fruitService;
+    }
 
     @GetMapping
     public List<Fruit> get() {
