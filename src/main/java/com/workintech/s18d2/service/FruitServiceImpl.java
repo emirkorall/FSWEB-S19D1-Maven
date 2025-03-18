@@ -51,9 +51,9 @@ public class FruitServiceImpl implements FruitService {
 
     @Override
     public Fruit delete(Long id) {
-        Fruit fruit = getById(id);
-        fruitRepository.deleteById(id);
-        return fruit;
+        Fruit fruitDelete = getById(id);
+        fruitRepository.delete(fruitDelete);
+        return fruitDelete;
 
     }
 }
